@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Mystical Korean Aesthetic Palette */
+  --color-midnight-900: #1a0b2e;
+  --color-midnight-800: #2d1b4e;
+  --color-midnight-700: #432c7a;
+  
+  --color-starlight-100: #fdfbf7;
+  --color-starlight-200: #e0d8f0;
+  
+  --color-gold-500: #d4af37;
+  --color-gold-400: #f4d06f;
+  --color-gold-600: #b08d26;
+
+  --color-accent-blue: #7092be;
+  --color-accent-red: #c95c5c;
+
+  --font-sans: "Noto Sans KR", sans-serif;
+  --font-serif: "Noto Serif KR", serif;
+}
+
+@layer base {
+  body {
+    @apply bg-midnight-900 text-starlight-100 font-sans antialiased;
+    background-image: url('./assets/bg-mystical.png');
+    background-repeat: repeat;
+    background-size: 500px;
+  }
+}
