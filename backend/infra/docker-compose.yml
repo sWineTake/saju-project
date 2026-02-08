@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  auth-db:
+    build: ./db/auth
+    container_name: auth-db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=authdb
+      - POSTGRES_USER=authuser
+      - POSTGRES_PASSWORD=authpass
+    volumes:
+      - auth_db_data:/var/lib/postgresql/data
+    networks:
+      - saju-network
+
+  saju-db:
+    build: ./db/saju
+    container_name: saju-db
+    ports:
+      - "5433:5432" 
+    environment:
+      - POSTGRES_DB=sajudb
+      - POSTGRES_USER=sajuuser
+      - POSTGRES_PASSWORD=sajupass
+    volumes:
+      - saju_db_data:/var/lib/postgresql/data
+    networks:
+      - saju-network
+
+  redis:
+    build: ./db/redis
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - saju-network
+
+networks:
+  saju-network:
+    driver: bridge
+
+volumes:
+  auth_db_data:
+  saju_db_data:
+  redis_data:

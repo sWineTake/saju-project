@@ -1,0 +1,6 @@
+rootProject.name = 'saju-backend'
+
+include 'core'
+include 'api-gateway'
+include 'auth-service'
+include 'saju-service'
